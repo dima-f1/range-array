@@ -1,0 +1,44 @@
+{
+  "name": "@dima-f1/range-array",
+  "version": "1.0.0",
+  "description": "Create an array with configurable range and optional callback invocation on each entry",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pack build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dima-f1/range-array.git"
+  },
+  "keywords": [
+    "javascript",
+    "array",
+    "js",
+    "range",
+    "generators"
+  ],
+  "author": "Dmitry Mandryka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dima-f1/range-array/issues"
+  },
+  "homepage": "https://github.com/dima-f1/range-array#readme",
+  "devDependencies": {
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.6.0",
+    "@pika/plugin-build-types": "^0.6.0",
+    "@pika/plugin-build-web": "^0.6.0",
+    "@pika/plugin-standard-pkg": "^0.6.0",
+    "pika-plugin-minify": "^0.1.0"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      ["@pika/plugin-standard-pkg", {"exclude": ["__tests__/**/*"]}],
+      ["@pika/plugin-build-web"],
+      ["pika-plugin-minify"],   
+      ["@pika/plugin-build-node"], 
+      ["@pika/plugin-build-types"]
+    ]
+  }
+}
