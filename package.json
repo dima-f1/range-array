@@ -4,8 +4,10 @@
   "description": "Create an array with configurable range and optional callback invocation on each entry",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pika build"
+    "test": "echo \"Error: no test specified\"",
+    "build": "pika build",
+    "prepublish": "npm run build",
+    "publish": "pika publish"
   },
   "repository": {
     "type": "git",
