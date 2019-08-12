@@ -38,7 +38,7 @@
     "pika-plugin-minify": "^0.1.0"
   },
   "np": {
-    "cleanup": false
+    "cleanup": true
   },
   "@pika/pack": {
     "pipeline": [
