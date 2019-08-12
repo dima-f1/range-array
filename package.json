@@ -36,8 +36,8 @@
     "pipeline": [
       ["@pika/plugin-standard-pkg", {"exclude": ["__tests__/**/*"]}],
       ["@pika/plugin-build-web"],
-      ["pika-plugin-minify"],
       ["@pika/plugin-build-node"],
+      ["pika-plugin-minify"],
       ["@pika/plugin-build-types"]
     ]
   }
