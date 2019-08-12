@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\"",
     "build": "pika build",
-    "prepublish": "npm run build",
-    "publish": "pika publish"
+    "publish": "pika publish",
+    "version": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -36,11 +36,26 @@
   },
   "@pika/pack": {
     "pipeline": [
-      ["@pika/plugin-standard-pkg", {"exclude": ["__tests__/**/*"]}],
-      ["@pika/plugin-build-web"],
-      ["@pika/plugin-build-node"],
-      ["pika-plugin-minify"],
-      ["@pika/plugin-build-types"]
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "pika-plugin-minify"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
     ]
   }
 }
