@@ -25,6 +25,9 @@
   "bugs": {
     "url": "https://github.com/dima-f1/range-array/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/dima-f1/range-array#readme",
   "devDependencies": {
     "@pika/pack": "^0.5.0",
