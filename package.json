@@ -1,13 +1,36 @@
 {
   "name": "@dima-f1/range-array",
   "version": "1.0.6",
+  "author": "Dmitry Mandryka",
+  "license": "MIT",
   "description": "Create an array with configurable range and optional callback invocation on each entry",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\"",
+    "watch:test": "npm t -- -w",
+    "test": "mocha",
+    "cover": "cross-env NODE_ENV=cover nyc mocha",
     "build": "pika build",
     "publish": "pika publish",
     "version": "npm run build"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "@istanbuljs/nyc-config-babel": "^2.1.1",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.6.0",
+    "@pika/plugin-build-types": "^0.6.0",
+    "@pika/plugin-build-web": "^0.6.0",
+    "@pika/plugin-standard-pkg": "^0.6.0",
+    "babel-plugin-istanbul": "^5.2.0",
+    "chai": "^4.2.0",
+    "core-js": "^3.2.1",
+    "cross-env": "^5.2.0",
+    "mocha": "^6.2.0",
+    "mocha-testcheck": "^1.0.0-rc.0",
+    "nyc": "^14.1.1",
+    "pika-plugin-minify": "^0.1.0",
+    "sinon": "^7.4.1"
   },
   "repository": {
     "type": "git",
@@ -18,10 +41,9 @@
     "array",
     "js",
     "range",
-    "generators"
+    "generators",
+    "iterables"
   ],
-  "author": "Dmitry Mandryka",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dima-f1/range-array/issues"
   },
@@ -29,16 +51,23 @@
     "access": "public"
   },
   "homepage": "https://github.com/dima-f1/range-array#readme",
-  "devDependencies": {
-    "@pika/pack": "^0.5.0",
-    "@pika/plugin-build-node": "^0.6.0",
-    "@pika/plugin-build-types": "^0.6.0",
-    "@pika/plugin-build-web": "^0.6.0",
-    "@pika/plugin-standard-pkg": "^0.6.0",
-    "pika-plugin-minify": "^0.1.0"
+  "mocha": {
+    "spec": "src/**/*.spec.js",
+    "require": "@babel/register"
   },
   "np": {
     "cleanup": true
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-babel",
+    "exclude": "**/*.spec.js",
+    "include": "src",
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
   },
   "@pika/pack": {
     "pipeline": [
@@ -46,7 +75,10 @@
         "@pika/plugin-standard-pkg",
         {
           "exclude": [
-            "__tests__/**/*"
+            "__tests__/**/*",
+            "**/*.spec.js",
+            ".nyc_output/**/*",
+            "coverage/**/*"
           ]
         }
       ],
