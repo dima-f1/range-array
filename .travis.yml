@@ -13,7 +13,7 @@ node_js:
     - "10"
 
 script:
-    - npm test
+    - npm run test:cover
 
 after_success:
-    - npm run test:coveralls
+    - npm run report-coverage

@@ -8,8 +8,8 @@
   "scripts": {
     "test:watch": "npm t -- -w",
     "test": "mocha",
-    "cover": "cross-env NODE_ENV=cover nyc mocha",
-    "test:coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test:cover": "cross-env NODE_ENV=cover nyc mocha",
+    "report-coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "pika build",
     "publish": "pika publish",
     "version": "npm run build"
