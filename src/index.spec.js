@@ -81,7 +81,7 @@ describe('rangeArray', () => {
 
             const callback = spy();
             const result = rangeArray(start, end, step, callback);
-            sinonAssert.callCount(callback, result.length)
+            sinonAssert.callCount(callback, result.length);
         }
     ));
 });

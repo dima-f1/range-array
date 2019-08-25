@@ -1,0 +1,39 @@
+{
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 9,
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "amd": true
+    },
+    "plugins": [
+        "babel"
+    ],
+    "rules": {
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "indent": [
+            "warn",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "babel/semi": [
+            "error",
+            "always"
+        ],
+        "no-console": ["warn"],
+        "no-nested-ternary": ["error"]
+    }
+}

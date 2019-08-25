@@ -6,7 +6,9 @@
   "description": "Create an array with configurable range and optional callback invocation on each entry",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint . --ext .js",
     "test:watch": "npm t -- -w",
+    "pretest": "npm run lint",
     "test": "mocha",
     "test:cover": "cross-env NODE_ENV=cover nyc mocha",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
