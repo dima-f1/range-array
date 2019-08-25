@@ -5,24 +5,6 @@
 [![NPM](https://img.shields.io/npm/l/@dima-f1/range-array?style=flat-square)](http://opensource.org/licenses/MIT)
 
 # Range-array
-
-With this function you can create an array with configurable range and optional callback invocation on each entry.
-
-**Note: This package was created for my own purposes, and I don't planning to actively maintain it. If you want you can fork this repository and do anything you want.**
-
-## Install
-NPM:
-```npm
-$ npm i @dima-f1/range-array
-```
-
-Yarn:
-```npm
-$ yarn add @dima-f1/range-array
-```
-
-## API Reference:
-
 <a name="module_@dima-f1/range-array..rangeArray"></a>
 
 ## @dima-f1/range-array~rangeArray([start], end, [step], [callbackFn]) ⇒ <code>array</code>
@@ -33,9 +15,9 @@ Create an array with configurable range and optional callback invocation on each
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [start] | <code>number</code> | <code>1</code> | The value from which will be started range of array entries. |
-| end | <code>number</code> | &nbsp; | The value at which will be ended range of array entries. If the value of `end` param is     `undefined` then `rangeArray` returns an empty array |
+| end | <code>number</code> |  | The value at which will be ended range of array entries. If the value of `end` param is     `undefined` then `rangeArray` returns an empty array |
 | [step] | <code>number</code> | <code>1</code> | The value, which will be used to determine the gap between adjacent array entries. If the     value of `step` param is less than `0` then `rangeArray` returns an empty array |
-| [callbackFn] | <code>function</code> | &nbsp; | A function that accepts only one argument - the next range item. If     `callbackFn` function provided then `rangeArray` calls it one time for each element in the array. |
+| [callbackFn] | <code>function</code> |  | A function that accepts only one argument - the next range item. If     `callbackFn` function provided then `rangeArray` calls it one time for each element in the array. |
 
 **Example**  
 ```js

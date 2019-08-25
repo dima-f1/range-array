@@ -34,6 +34,18 @@ function* _range(start, end, step, callbackFn) {
  * @param {function(number)} [callbackFn] - A function that accepts only one argument - the next range item. If
  *     `callbackFn` function provided then `rangeArray` calls it one time for each element in the array.
  * @return {array} The array that corresponds with given params.
+ *
+ * @example
+ * ```js
+ * rangeArray(1, 10);
+ * // => [1,2,3,4,5,6,7,8,9,10]
+ *
+ * rangeArray(1, 10, 3);
+ * // => [1,4,7,10]
+ *
+ * rangeArray(1, 10, 2, (entry) => `Hello ${entry}`);
+ * // => ['Hello 1','Hello 3','Hello 5','Hello 7','Hello 9']
+ * ```
  */
 function rangeArray(start = 1, end, step = 1, callbackFn) {
     if (step <= 0 || end === undefined) return [];

@@ -12,7 +12,8 @@
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "pika build",
     "publish": "pika publish",
-    "version": "npm run build"
+    "version": "npm run build",
+    "docs": "jsdoc2md --template jsdoc2md/API.hbs --files src/**/**.js > API.md"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5"
