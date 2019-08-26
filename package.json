@@ -40,6 +40,7 @@
     "eslint-loader": "^3.0.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.4",
     "jsdoc-to-markdown": "^5.0.0",
     "mocha": "^6.2.0",
     "mocha-testcheck": "^1.0.0-rc.0",
@@ -83,6 +84,11 @@
     ],
     "sourceMap": false,
     "instrument": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
   },
   "@pika/pack": {
     "pipeline": [
