@@ -8,24 +8,29 @@
 
 With this function you can create an array with configurable range and optional callback invocation on each entry.
 
-**Note: This package was created for my own purposes, and I don't planning to actively maintain it. If you want you can fork this repository and do anything you want.**
+**Note: This package created for my purposes, and I don't plan to actively maintain it. You can make a fork from this repository and do anything you want.**
 
-## Install
-NPM:
-```npm
+## Table of Contents
++ [Installation](#installation)
++ [API Reference](#api)
++ [Usage](#usage)
+
+## Installation <a name="installation"></a>
+#### NPM:
+```sh
 $ npm i @dima-f1/range-array
 ```
 
-Yarn:
-```npm
+#### Yarn:
+```sh
 $ yarn add @dima-f1/range-array
 ```
 
-## API Reference:
+## API Reference <a name="api"></a>
 
 <a name="module_@dima-f1/range-array..rangeArray"></a>
 
-## @dima-f1/range-array~rangeArray([start], end, [step], [callbackFn]) ⇒ <code>array</code>
+### @dima-f1/range-array~rangeArray([start], end, [step], [callbackFn]) ⇒ <code>array</code>
 Create an array with configurable range and optional callback invocation on each entry.
 
 **Returns**: <code>array</code> - The array that corresponds with given params.  
@@ -37,8 +42,11 @@ Create an array with configurable range and optional callback invocation on each
 | [step] | <code>number</code> | <code>1</code> | The value, which will be used to determine the gap between adjacent array entries. If the     value of `step` param is less than `0` then `rangeArray` returns an empty array |
 | [callbackFn] | <code>function</code> | &nbsp; | A function that accepts only one argument - the next range item. If     `callbackFn` function provided then `rangeArray` calls it one time for each element in the array. |
 
-**Example**  
+## Usage <a name="usage"></a>
 ```js
+import rangeArray from '@dima-f1/range-array';
+
+
 rangeArray(1, 10);
 // => [1,2,3,4,5,6,7,8,9,10]
 
@@ -48,3 +56,6 @@ rangeArray(1, 10, 3);
 rangeArray(1, 10, 2, (entry) => `Hello ${entry}`);
 // => ['Hello 1','Hello 3','Hello 5','Hello 7','Hello 9']
 ```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
