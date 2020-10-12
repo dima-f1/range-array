@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { check, gen } from 'mocha-testcheck';
-import { spy, assert as sinonAssert} from 'sinon';
+import { spy, assert as sinonAssert } from 'sinon';
 
 import rangeArray from './';
 
@@ -12,10 +12,10 @@ describe('rangeArray', () => {
     const fn = (val) => val;
 
     it('should return an array', check(
-        gen.oneOf([ gen.intWithin(-10, 10), gen.undefined ]),
-        gen.oneOf([ gen.intWithin(-10, 20), gen.undefined ]),
-        gen.oneOf([ gen.intWithin(-5, 5), gen.undefined ]),
-        gen.oneOf([ noop, gen.undefined ]),
+        gen.oneOf([gen.intWithin(-10, 10), gen.undefined]),
+        gen.oneOf([gen.intWithin(-10, 20), gen.undefined]),
+        gen.oneOf([gen.intWithin(-5, 5), gen.undefined]),
+        gen.oneOf([noop, gen.undefined]),
         (start, end, step, fn) => {
 
             const result = rangeArray(start, end, step, fn);
@@ -32,7 +32,7 @@ describe('rangeArray', () => {
     });
 
     it('should return an array of numbers from 1 to 10', () => {
-        const expectedResult = [1,2,3,4,5,6,7,8,9,10];
+        const expectedResult = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         expect(rangeArray(1, 10)).to.eql(expectedResult);
         expect(rangeArray(undefined, 10, 1)).to.eql(expectedResult);
         expect(rangeArray(1, 10, 1, fn)).to.eql(expectedResult);
@@ -44,10 +44,10 @@ describe('rangeArray', () => {
     });
 
     it('should return an array with correct length', check(
-        gen.oneOf([ gen.intWithin(-10, 10), gen.undefined ]),
-        gen.oneOf([ gen.intWithin(-10, 20), gen.undefined ]),
-        gen.oneOf([ gen.intWithin(-1, 5), gen.undefined ]),
-        gen.oneOf([ fn, gen.undefined ]),
+        gen.oneOf([gen.intWithin(-10, 10), gen.undefined]),
+        gen.oneOf([gen.intWithin(-10, 20), gen.undefined]),
+        gen.oneOf([gen.intWithin(-1, 5), gen.undefined]),
+        gen.oneOf([fn, gen.undefined]),
         (start, end, step, fn) => {
 
             const result = rangeArray(start, end, step, fn);
@@ -56,7 +56,7 @@ describe('rangeArray', () => {
             const startEndRange = Math.abs(end - _start);
             let length = Math.ceil(startEndRange / _step);
 
-            if (end === undefined || _step <= 0 || _start > end ) {
+            if (end === undefined || _step <= 0 || _start > end) {
                 length = 0;
             } else if (startEndRange % _step === 0) {
                 length += 1;
@@ -67,16 +67,16 @@ describe('rangeArray', () => {
     ));
 
     it('should return an array with numbers from 0 to 10 with step equal 2', () => {
-        const expectedResult = [0,2,4,6,8,10];
+        const expectedResult = [0, 2, 4, 6, 8, 10];
         expect(rangeArray(0, 10, 2)).to.eql(expectedResult);
         expect(rangeArray(0, 10, 2, fn)).to.eql(expectedResult);
     });
 
 
     it('should call callback on each array item', check(
-        gen.oneOf([ gen.intWithin(-10, 10), gen.undefined ]),
-        gen.oneOf([ gen.intWithin(-10, 20), gen.undefined ]),
-        gen.oneOf([ gen.intWithin(-1, 5), gen.undefined ]),
+        gen.oneOf([gen.intWithin(-10, 10), gen.undefined]),
+        gen.oneOf([gen.intWithin(-10, 20), gen.undefined]),
+        gen.oneOf([gen.intWithin(-1, 5), gen.undefined]),
         (start, end, step) => {
 
             const callback = spy();
